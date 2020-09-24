@@ -1,0 +1,11 @@
+{
+  "name": "creating-server",
+  "version": "1.0.0",
+  "description": "Creating our First Server",
+  "main": "inde.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nishant",
+  "license": "ISC"
+}
