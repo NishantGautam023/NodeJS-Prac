@@ -6,6 +6,7 @@ const app = express();
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
+app.use(express.urlencoded())
 
 
 var contactList = [
@@ -38,10 +39,12 @@ app.get('/practice' , function(req, res) {
 })
 
 app.post('/create-contact', function(req, res) {
-    return res.redirect('/practice')
-})
-
-
+  
+  console.log(req.body)
+  console.log(req.body.name)
+  console.log(req.body.phone);  
+     //open chrome   resolve??
+});
 
 app.listen(port, function(err) {
     if(err) {
