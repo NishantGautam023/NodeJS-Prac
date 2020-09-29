@@ -4,9 +4,23 @@ const path = require('path')
 const app = express();
 
 
+
+
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded())
+
+
+// middleware 1 
+app.use(function(req, res, next) {
+    console.log("The middleware 1 have been called!!!!")
+    next()
+});
+//middleWare 2
+app.use(function(req,res,next) {
+    console.log("The middleware 2 have been called!!")
+    next()
+})
 
 
 var contactList = [
@@ -40,9 +54,15 @@ app.get('/practice' , function(req, res) {
 
 app.post('/create-contact', function(req, res) {
   
-  console.log(req.body)
-  console.log(req.body.name)
-  console.log(req.body.phone);  
+   contactList.push({
+       name: req.body.name,
+       phone: req.body.phone
+   });
+   return res.redirect('/')
+
+//   console.log(req.body)
+//   console.log(req.body.name)
+//   console.log(req.body.phone);  
      //open chrome   resolve??
 });
 
